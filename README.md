@@ -1,34 +1,30 @@
-![logo](https://github.com/sahilatahar/Code-Sync/assets/100127570/d1ff7f52-a692-4d51-b281-358aeab9156e)
+# SyncScript – Distributed Real-Time Collaborative Workspace
 
-A collaborative, real-time code editor where users can seamlessly code together. It provides a platform for multiple users to enter a room, share a unique room ID, and collaborate on code simultaneously.
+SyncScript is a real-time collaborative web application that allows multiple users to join a shared workspace and collaborate simultaneously using live synchronization. The system is designed to demonstrate distributed systems, real-time communication, and full-stack cloud deployment.
 
+---
 
-## 🔮 Features
+## 🚀 Project Overview
 
-- 💻 Real-time collaboration on code editing across multiple files
-- 📁 Create, open, edit, save, delete, and organize files and folders
-- 💾 Option to download the entire codebase as a zip file
-- 🚀 Unique room generation with room ID for collaboration
-- 🌍 Comprehensive language support for versatile programming
-- 🌈 Syntax highlighting for various file types with auto-language detection
-- 🚀 Code Execution: Users can execute the code directly within the collaboration environment
-- ⏱️ Instant updates and synchronization of code changes across all files and folders
-- 📣 Notifications for user join and leave events
-- 👥 User presence list with online/offline status indicators
-- 💬 Real-time group chatting functionality
-- 🎩 Real-time tooltip displaying users currently editing.
-- 🖊 Showing real-time selection of what each user has currently selected.
-- 💡 Auto-suggestion based on programming language
-- 🔠 Option to change font size and font family
-- 🎨 Multiple themes for personalized coding experience
-- 🎨 Collaborative Drawing: Enable users to draw and sketch collaboratively in real-time
-- 🤖 Copilot: An AI-powered assistant that generates code, allowing you to insert, copy, or replace content seamlessly within your files.
+SyncScript enables users to:
+- Join a shared room
+- Collaborate in real time
+- See updates instantly across all connected clients
+- Experience seamless synchronization using WebSockets
 
-## 🚀 Live Preview
+The project focuses on real-world challenges such as connection handling, synchronization, and scalable deployment.
 
-You can view the live preview of the project [here](https://code-sync-live.vercel.app/).
+---
 
-## 💻 Tech Stack
+## 🎯 Objectives
+
+- Build a real-time collaborative platform
+- Implement WebSocket-based communication
+- Ensure low latency and synchronization accuracy
+- Deploy a full-stack application on cloud platforms
+- Understand distributed system behavior
+
+---
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -42,116 +38,130 @@ You can view the live preview of the project [here](https://code-sync-live.verce
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-## ⚙️ Installation
 
-### Method 1: Manual Installation
+## 🧑‍💻 Technologies Used
 
-1. **Fork this repository:** Click the Fork button located in the top-right corner of this page.
-2. **Clone the repository:**
-   ```bash
-   git clone https://github.com/<your-username>/Code-Sync.git
-   ```
-3. **Create .env file:**
-   Inside the client and server directories create `.env` and set:
+### Frontend
+- React (Vite)
+- TypeScript
+- Axios
+- Socket.IO Client
 
-   Frontend:
+### Backend
+- Node.js
+- Express.js
+- Socket.IO
 
-   ```bash
-   VITE_BACKEND_URL=<your_server_url>
-   ```
+### Deployment
+- Frontend: Vercel
+- Backend: Render
 
-   Backend:
+---
 
-   ```bash
-   PORT=3000
-   ```
+## ⭐ Unique Feature (Added Contribution)
 
-4. **Install dependencies:**
-   ```bash
-   npm install     # Run in both client and server directories
-   ```
-5. **Start the servers:**
-   Frontend:
-   ```bash
-   cd client
-   npm run dev
-   ```
-   Backend:
-   ```bash
-   cd server
-   npm run dev
-   ```
-6. **Access the application:**
-   ```bash
-   http://localhost:5173/
-   ```
-### 🎥 Need help with the setup?
-👉 Watch [this video](https://youtu.be/zVHwOmU0aqo) for a step-by-step guide.
-### Method 2: Docker Installation
+### 🔔 Live Connection Status Indicator
 
-1. **Install Docker Desktop:**
+A real-time connection status indicator was added to enhance reliability and user experience.
 
-   - Download and install **Docker Desktop** from [Docker’s official website](https://www.docker.com/products/docker-desktop/).
-   - Verify installation:
-     ```bash
-     docker --version
-     ```
+#### What it does:
+- Displays **Connecting / Connected / Disconnected** status
+- Automatically updates using Socket.IO lifecycle events
+- Notifies users when the server connection fails or reconnects
 
-2. **Pull Docker Images:**
+#### Why it matters:
+- Improves transparency in distributed systems
+- Demonstrates fault tolerance handling
+- Reflects real-world collaborative application behavior
 
-   ```bash
-   # Pull Backend Image
-   docker pull sahilatahar/code-sync-server:latest
+---
 
-   # Pull Frontend Image
-   docker pull sahilatahar/code-sync-client:latest
-   ```
+## 🏗️ System Architecture
 
-3. **Run Docker Containers:**
+### High-Level Architecture
+<img width="1101" height="358" alt="Screenshot 2026-01-10 193014" src="https://github.com/user-attachments/assets/f6e38fc9-4f79-49a8-a588-393f51ef1169" />
 
-   ```bash
-   # Run Backend Container (Port 3000)
-   docker run -d -p 3000:3000 --name code-sync-server sahilatahar/code-sync-server:latest
 
-   # Run Frontend Container (Port 5173)
-   docker run -d -p 5173:5173 --name code-sync-client sahilatahar/code-sync-client:latest
-   ```
+## 🔁 Real-Time Data Flow Explanation
 
-4. **Access the application:**
-   ```bash
-   http://localhost:5173/
-   ```
+1. User opens the application
+2. Frontend loads UI from Vercel
+3. Socket.IO establishes a persistent WebSocket connection
+4. User joins a room
+5. Any action (code edit, drawing, sync request):
+   - Sent to backend
+   - Broadcasted to all room members
+6. All connected users receive updates instantly
 
-## 🔮 Features for Next Release
+---
 
-- **Admin Permission:** Implement an admin permission system to manage user access levels and control over certain platform features.
+## ⚡ Why Socket.IO?
 
-## 🤝 Contribute
+- Real-time bidirectional communication
+- Automatic reconnection handling
+- Transport fallback support
+- Ideal for collaborative applications
 
-We welcome contributions to make Code Sync even better! Follow the [contribution guidelines](CONTRIBUTING.md) to get started.
+---
 
-## 🌟 Support Us
+## 🌍 Deployment Architecture
+<img width="1138" height="318" alt="Screenshot 2026-01-10 190923" src="https://github.com/user-attachments/assets/721288d4-cdda-4414-a419-f294c3bd125a" />
 
-If you find this helpful or valuable, please consider 🌟 starring the repository. It helps us gain visibility and encourages further development.
 
-## 🧾 License
 
-This project is licensed under the [MIT License](LICENSE).
+---
 
-## 🌟 Appreciation for Resources
+## 🧠 Project Explanation (For Viva)
 
-Special thanks to:
+### Introduction
+This project is a real-time distributed collaborative workspace designed to simulate modern collaborative platforms. It focuses on real-time synchronization using WebSockets.
 
-- EMKC for providing the Piston API:
+### Working
+Each user joins a room. Any change made by one user is sent to the backend and broadcasted to all users in the same room, ensuring consistency and synchronization.
 
-  - [Piston Repository](https://github.com/engineer-man/piston)
-  - [Piston Docs](https://piston.readthedocs.io/en/latest/api-v2/)
+### Challenges Faced
+- Socket.IO connection failures
+- Environment variable misconfiguration
+- CORS and polling issues
+- Deployment integration between frontend and backend
 
-- Tldraw contributors:
-  - [Tldraw Repository](https://github.com/tldraw/tldraw)
-  - [Tldraw Documentation](https://tldraw.dev/)
+### Solutions Implemented
+- Correct backend URL handling
+- Relative API paths for frontend
+- WebSocket error handling
+- Cloud deployment using environment variables
 
-- Pollinations AI:
-  - [Pollinations Repository](https://github.com/pollinations/pollinations)
-  - [Pollinations Docs](https://pollinations.ai/)
+---
+
+## 🧪 Learning Outcomes
+
+- Understanding distributed systems
+- WebSocket-based real-time communication
+- Full-stack debugging
+- Cloud deployment strategies
+- System architecture design
+
+---
+
+## 📌 Future Enhancements
+
+- Authentication
+- Role-based access
+- Persistent storage
+- Chat history
+- File sharing
+
+---
+
+## 📄 Conclusion
+
+SyncScript demonstrates a practical implementation of real-time collaboration using modern web technologies. The project highlights challenges and solutions involved in building scalable distributed systems.
+
+---
+
+## 🔗 Live Deployment
+
+- Frontend (Vercel): **[To be deployed]**
+- Backend (Render): **[To be deployed]**
+
 
