@@ -161,7 +161,11 @@ SyncScript demonstrates a practical implementation of real-time collaboration us
 
 ## 🔗 Live Deployment
 
-- Frontend (Vercel): **[To be deployed]**
-- Backend (Render): **[To be deployed]**
+- Frontend (Vercel): **[https://syncscript-kamlesh-pawar.vercel.app/]**
+- Backend (Render): **[https://syncscript-distributed-real-time.onrender.com/]**
+
+- ## 🚀 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://syncscript-kamlesh-pawar.vercel.app/)
 
 
